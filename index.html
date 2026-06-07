@@ -618,6 +618,50 @@
         </div>
     </section>
 
+    <!-- Agent Quick Start Section -->
+    <section class="section container" id="quickstart">
+        <h2>Agent Quick Start</h2>
+        <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 40px;">Get the best DEX price in 3 steps.</p>
+
+        <div style="background: #f9fafb; border-radius: 12px; padding: 40px; margin-bottom: 40px;">
+            <h3 style="margin-bottom: 30px;">Step 1: Probe the API (No Payment)</h3>
+            <p style="color: #666; margin-bottom: 15px;">Call the endpoint without payment to learn the toll:</p>
+            <div style="background: #fff; padding: 15px; border-radius: 6px; font-family: 'Monaco', monospace; font-size: 13px; color: #333; overflow-x: auto; margin-bottom: 15px;">
+curl "https://api.myezverse.xyz/api/v1/quote?chain=base&sellToken=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913&buyToken=0x4200000000000000000000000000000000000006&sellAmount=1000000"
+            </div>
+            <p style="color: #666; font-size: 14px;">Response: <code>402 Payment Required</code> with pricing tiers (Basic $0.03, Resilient $0.10, Institutional $0.50)</p>
+        </div>
+
+        <div style="background: #f9fafb; border-radius: 12px; padding: 40px; margin-bottom: 40px;">
+            <h3 style="margin-bottom: 30px;">Step 2: Sign X402 Payment (EIP-3009)</h3>
+            <p style="color: #666; margin-bottom: 15px;">Create an EIP-3009 <code>TransferWithAuthorization</code> signed message:</p>
+            <div style="background: #fff; padding: 15px; border-radius: 6px; font-family: 'Monaco', monospace; font-size: 13px; color: #333; overflow-x: auto; margin-bottom: 15px;">
+Domain: USD Coin (0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913)
+To: 0x13dDE704389b1118B20d2BCc6D3Ace749600e2ad (toll address)
+Value: 30000 atomic USDC (0.03 USDC)
+ValidBefore: now + 300 seconds
+Nonce: random 32 bytes
+            </div>
+            <p style="color: #666; font-size: 14px;">Sign with your agent's private key. No private key stored. Fully cryptographic.</p>
+        </div>
+
+        <div style="background: #f9fafb; border-radius: 12px; padding: 40px;">
+            <h3 style="margin-bottom: 30px;">Step 3: Get Best Price (With Payment)</h3>
+            <p style="color: #666; margin-bottom: 15px;">Retry with the signed X-Payment header:</p>
+            <div style="background: #fff; padding: 15px; border-radius: 6px; font-family: 'Monaco', monospace; font-size: 13px; color: #333; overflow-x: auto; margin-bottom: 15px;">
+curl "https://api.myezverse.xyz/api/v1/quote?chain=base&sellToken=...&buyToken=...&sellAmount=..." \
+  -H "X-Payment: &lt;base64-encoded-eip3009-signature&gt;"
+            </div>
+            <p style="color: #666; font-size: 14px;">Response: <code>200 OK</code> with best price from 10 DEX venues (0x, ParaSwap, Aerodrome, Uniswap V3, Curve, Balancer, Uniswap V2, 1Inch, CoW, Synthetix)</p>
+        </div>
+
+        <div style="background: #f3f0ff; border-radius: 12px; padding: 30px; margin-top: 40px; text-align: center;">
+            <h3 style="color: #7c3aed; margin-bottom: 15px;">Full Technical Documentation</h3>
+            <p style="color: #666; margin-bottom: 20px;">For detailed API reference, OpenAPI schema, and examples:</p>
+            <a href="https://api.myezverse.xyz/" style="display: inline-block; padding: 12px 24px; background: #7c3aed; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">View API Documentation →</a>
+        </div>
+    </section>
+
     <!-- Monad Section -->
     <section class="monad-section">
         <h2>Built for Monad</h2>
