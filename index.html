@@ -509,8 +509,8 @@
         <h1>10-Venue <span class="highlight">DEX Routing</span> for Monad Agents</h1>
         <p class="subtitle">Race 10 DEX venues in parallel. Get the best price. No trusted aggregator.</p>
         <div class="cta-buttons">
-            <a href="https://www.npmjs.com/package/@infiniteezverse/monskills-ezpath" class="btn btn-primary">Install Now</a>
-            <a href="https://github.com/infiniteezverse/monskills-ezpath" class="btn btn-secondary">View on GitHub</a>
+            <a href="https://api.myezverse.xyz/" class="btn btn-primary">Get Started</a>
+            <a href="https://github.com/infiniteezverse/ez-agentic-price-path" class="btn btn-secondary">View on GitHub</a>
         </div>
     </section>
 
@@ -593,27 +593,19 @@
 
     <!-- Integration Section -->
     <section class="section container" id="integration">
-        <h2>Three Ways to Integrate</h2>
+        <h2>Two Ways to Access EZ-Path</h2>
         <div class="integration-grid">
             <div class="integration-card">
-                <h3>1. npm Package</h3>
-                <p>Fastest integration. One install, no setup.</p>
-                <div class="code">npm install @infiniteezverse/monskills-ezpath</div>
-                <div class="code">import { getPrice } from '@infiniteezverse/monskills-ezpath';</div>
-                <p>Full TypeScript support. Works in any Node.js agent.</p>
-            </div>
-            <div class="integration-card">
-                <h3>2. HTTP API ✅</h3>
+                <h3>1. HTTP API ✅</h3>
                 <p>Call our hosted endpoint. Cloudflare Workers on Base mainnet.</p>
                 <div class="code">GET https://api.myezverse.xyz/api/v1/quote?chain=base&sellToken=...&buyToken=...&sellAmount=...</div>
                 <p>X402 EIP-3009 micro-payments. Rate limits: 120/min per payer. Returns 402 if unsigned.</p>
             </div>
             <div class="integration-card">
-                <div class="coming-soon">Coming Soon</div>
-                <h3>3. Agent Discovery</h3>
+                <h3>2. Agent Discovery ✅</h3>
                 <p>Agent registries auto-discover EZ-Path.</p>
                 <div class="code">.well-known/agent.json</div>
-                <p>MONSKILLS marketplace, AgentX, and registries will find you.</p>
+                <p>MONSKILLS marketplace, AgentX, and registries find and integrate you automatically.</p>
             </div>
         </div>
     </section>
@@ -737,11 +729,10 @@ curl "https://api.myezverse.xyz/api/v1/quote?chain=base&sellToken=...&buyToken=.
     <!-- Footer -->
     <footer class="container">
         <ul class="links">
-            <li><a href="https://github.com/infiniteezverse/monskills-ezpath" target="_blank">GitHub Repo</a></li>
-            <li><a href="https://www.npmjs.com/package/@infiniteezverse/monskills-ezpath" target="_blank">npm Package</a></li>
-            <li><a href="https://github.com/infiniteezverse/monskills-ezpath/blob/main/QUICKSTART.md" target="_blank">Quickstart</a></li>
-            <li><a href="https://github.com/infiniteezverse/monskills-ezpath/blob/main/BUSINESS_PITCH.md" target="_blank">Business Pitch</a></li>
-            <li><a href="https://github.com/infiniteezverse/monskills-ezpath/blob/main/AGENT_CALLS.md" target="_blank">API Docs</a></li>
+            <li><a href="https://github.com/infiniteezverse/ez-agentic-price-path" target="_blank">GitHub Repo</a></li>
+            <li><a href="https://api.myezverse.xyz/" target="_blank">API Endpoint</a></li>
+            <li><a href="https://api.myezverse.xyz/.well-known/agent.json" target="_blank">Agent Manifest</a></li>
+            <li><a href="https://api.myezverse.xyz/openapi.json" target="_blank">OpenAPI Schema</a></li>
         </ul>
         <p class="copyright">© 2026 infiniteezverse. MIT Licensed. Built for Monad agents.</p>
     </footer>
